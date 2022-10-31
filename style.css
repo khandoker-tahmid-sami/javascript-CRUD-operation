@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background: rgb(177,175,255);
+    background: linear-gradient(184deg, rgba(177,175,255,1) 0%, rgba(255,166,55,1) 0%, rgba(187,46,46,1) 100%); 
+    height: 100vh;
+    display: flex;
+    /* position: relative; */
+}
+
+/* form css */
+.form{
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%,-50%); */
+}
+
+.form h1{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 25px;
+    color: rgb(168, 123, 1);
+}
+
+.form label{
+    display: inline-block;
+    font-size: 1.2rem;
+    color: rgb(168, 123, 1);
+    margin-bottom: 10px;
+}
+
+.form input{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.form button{
+    /* text-decoration: none; */
+    /* text-align: center; */
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: #000;
+    border: none;
+}
+
+.form p{
+    text-align: center;
+    font-size: 1.3rem;
+    color: red;
+    padding-bottom: 15px;
+}
+
+
+/* table css */
+table{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    margin: auto;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%;
+    transform: translate(-50%,-50%); */
+}
+
+table caption{
+    padding-bottom: 10px;
+    font-size: 25px;
+    color: #fff;
+}
+
+table th{
+    font-size: 1.2rem;
+    color: rgb(168, 123, 1);
+    padding: 10px;
+}
+
+table tbody{
+    font-size: 1.2rem;
+    color: rgb(168, 123, 1);
+}
+
+
+table tbody td{
+    padding: 0 30px;
+}
+

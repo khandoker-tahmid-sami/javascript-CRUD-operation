@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <form id="myform" class="form">
+            <h1>Insert your data into table</h1>
+            <label for="userName">Username:</label>
+            <input type="text" placeholder="your name" id="userName">
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" placeholder="yourmail@gmail.com">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="number" placeholder="phone number" id="phoneNumber">
+            <label for="userCity">City:</label>
+            <input type="text" placeholder="your city" id="userCity">
+            <p id="msg"></p>
+            <button type="submit">Submit</button>
+        </form>
+
+        <table id="myTable">
+            <caption>Your data will be visible here</caption>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+         </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
