@@ -25,33 +25,58 @@ function formValidation(){
     else{
         mymessage.innerHTML = "";
         // acceptData();
-        createData();
+        accecptMyCrud();
     }
 }
 
+let myCrud = [];
 
+let accecptMyCrud = () =>{
+    myCrud.push({
+        username : userName.value,
+        email : email.value,
+        phone_number : phoneNumber.value,
+        city : myCity.value
+    });
+    localStorage.setItem("mycrud", JSON.stringify(myCrud));
+    // console.log(myCrud);
+    createData();
+}
 
 function createData(){
     // const tblBody = document.createElement("tbody");
     // myTable.appendChild(tblBody)
-    var row = 0; //I have to sort out this problem why it is not working outside the function
-    var myRow = myTable.insertRow(row);
-
-    var cell1 = myRow.insertCell(0);
-    var cell2 = myRow.insertCell(1);
-    var cell3 = myRow.insertCell(2);
-    var cell4 = myRow.insertCell(3);
-    var cell5 = myRow.insertCell(4);
-    var cell6 = myRow.insertCell(5);
-
-
-    cell1.innerHTML = userName.value;
-    cell2.innerHTML = email.value;
-    cell3.innerHTML = phoneNumber.value;
-    cell4.innerHTML = myCity.value;
-    cell5.innerHTML = `<button onclick="editData(this)" style="display: block; padding: 10px 20px; border-radius: 5px; color: #fff; background-color: #000;">Edit</button>`;
-    cell6.innerHTML = `<button onclick="deleteData(this)" style="display: block; padding: 10px 15px; border-radius: 5px; color: #fff; background-color: #000;">Delete</button>`;
-    row++;
+    // myCrud.map((x,y)=>{
+    //     return 
+    // });
+    // var row = 0;         myTable="";
+    // var x = myTable.row.length;
+    // while(--x){
+    //     myTable.deleteData(x);
+    // }
+    myTable.innerHTML = "";
+    for(i=0;i<myCrud.length;i++){ 
+        // var row = 0; 
+        var myRow = myTable.insertRow();
+        
+        
+        var cell1 = myRow.insertCell();
+        var cell2 = myRow.insertCell();
+        var cell3 = myRow.insertCell();
+        var cell4 = myRow.insertCell();
+        var cell5 = myRow.insertCell();
+        var cell6 = myRow.insertCell();
+        // var rowindex = myRow.setAttribute("id",i);
+        // console.log(rowindex)
+        cell1.innerHTML = myCrud[i].username;
+        cell2.innerHTML = myCrud[i].email;
+        cell3.innerHTML = myCrud[i].phone_number;
+        cell4.innerHTML = myCrud[i].city;
+        cell5.innerHTML = `<button onclick="editData(this)" style="display: block; padding: 10px 20px; border-radius: 5px; color: #fff; background-color: #000;">Edit</button>`;
+        cell6.innerHTML = `<button onclick="deleteData(this)" style="display: block; padding: 10px 15px; border-radius: 5px; color: #fff; background-color: #000;">Delete</button>`;
+        // row++;
+    }
+    // row++;
     resetForm();
 }
 
@@ -69,10 +94,18 @@ function editData(e){
     phoneNumber.value = e.parentElement.previousElementSibling.previousElementSibling.innerHTML;
     myCity.value = e.parentElement.previousElementSibling.innerHTML;
     e.parentElement.parentElement.remove();
+    deleteData(e);
 }
 
 function deleteData(e){
     e.parentElement.parentElement.remove();
+    myCrud.splice(e.parentElement.parentElement,1);
+    localStorage.setItem("mycrud", JSON.stringify(myCrud));
 }
 
 
+(()=>{
+    myCrud = JSON.parse(localStorage.getItem("mycrud"));
+    createData();
+    console.log(myCrud);
+})();
