@@ -55,27 +55,40 @@ function createData(){
     //     myTable.deleteData(x);
     // }
     myTable.innerHTML = "";
-    for(i=0;i<myCrud.length;i++){ 
-        // var row = 0; 
-        var myRow = myTable.insertRow();
+    myCrud.map((x,y) =>{
+       return ( myTable.innerHTML+= `
+       <tr id = ${y}>
+        <td>${x.username}</td>
+        <td>${x.email}</td>
+        <td>${x.phone_number}</td>
+        <td>${x.city}</td>
+        <td><button onclick="editData(this)" style="display: block; padding: 10px 20px; border-radius: 5px; color: #fff; background-color: #000;">Edit</button></td>
+        <td><button onclick="deleteData(this)" style="display: block; padding: 10px 15px; border-radius: 5px; color: #fff; background-color: #000;">Delete</button></td>
+        </tr>
+       `);
+    });
+    
+    // for(i=0;i<myCrud.length;i++){ 
+    //     // var row = 0; 
+    //     var myRow = myTable.insertRow();
         
         
-        var cell1 = myRow.insertCell();
-        var cell2 = myRow.insertCell();
-        var cell3 = myRow.insertCell();
-        var cell4 = myRow.insertCell();
-        var cell5 = myRow.insertCell();
-        var cell6 = myRow.insertCell();
-        // var rowindex = myRow.setAttribute("id",i);
-        // console.log(rowindex)
-        cell1.innerHTML = myCrud[i].username;
-        cell2.innerHTML = myCrud[i].email;
-        cell3.innerHTML = myCrud[i].phone_number;
-        cell4.innerHTML = myCrud[i].city;
-        cell5.innerHTML = `<button onclick="editData(this)" style="display: block; padding: 10px 20px; border-radius: 5px; color: #fff; background-color: #000;">Edit</button>`;
-        cell6.innerHTML = `<button onclick="deleteData(this)" style="display: block; padding: 10px 15px; border-radius: 5px; color: #fff; background-color: #000;">Delete</button>`;
-        // row++;
-    }
+    //     var cell1 = myRow.insertCell();
+    //     var cell2 = myRow.insertCell();
+    //     var cell3 = myRow.insertCell();
+    //     var cell4 = myRow.insertCell();
+    //     var cell5 = myRow.insertCell();
+    //     var cell6 = myRow.insertCell();
+    //     // var rowindex = myRow.setAttribute("id",i);
+    //     // console.log(rowindex)
+    //     cell1.innerHTML = myCrud[i].username;
+    //     cell2.innerHTML = myCrud[i].email;
+    //     cell3.innerHTML = myCrud[i].phone_number;
+    //     cell4.innerHTML = myCrud[i].city;
+    //     cell5.innerHTML = `<button onclick="editData(this)" style="display: block; padding: 10px 20px; border-radius: 5px; color: #fff; background-color: #000;">Edit</button>`;
+    //     cell6.innerHTML = `<button onclick="deleteData(this)" style="display: block; padding: 10px 15px; border-radius: 5px; color: #fff; background-color: #000;">Delete</button>`;
+    //     // row++;
+    // }
     // row++;
     resetForm();
 }
@@ -99,7 +112,7 @@ function editData(e){
 
 function deleteData(e){
     e.parentElement.parentElement.remove();
-    myCrud.splice(e.parentElement.parentElement,1);
+    myCrud.splice(e.parentElement.parentElement.id,1);
     localStorage.setItem("mycrud", JSON.stringify(myCrud));
 }
 
